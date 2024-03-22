@@ -1,9 +1,8 @@
-
+import { cn } from "@/libs/utils";
+import { Providers } from "@/providers/Providers";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { cn } from "@/libs/utils";
-import { Providers } from "@/providers/Providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,12 +21,10 @@ export default function RootLayout({
       <body
         className={cn(
           inter.className,
-          "overflow-x-visible bg-white antialiased duration-200"
+          "overflow-x-visible bg-white antialiased duration-200",
         )}
       >
-        <Providers>
-          {children}
-        </Providers>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

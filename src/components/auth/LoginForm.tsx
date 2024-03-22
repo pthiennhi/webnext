@@ -2,7 +2,7 @@
 
 import { Button, Input } from "@nextui-org/react";
 import React from "react";
-import { Password, Text } from "@/components/common/ui"
+import { Password, Text } from "@/components/common/ui";
 import { useLogin } from "@/hooks/auth/useLogin";
 
 export const LoginForm = () => {
@@ -22,7 +22,7 @@ export const LoginForm = () => {
         type="text"
         placeholder="Enter your username"
         name="username"
-        required
+        isRequired
       />
 
       <Password
@@ -30,17 +30,16 @@ export const LoginForm = () => {
         type="password"
         placeholder="Enter your password"
         name="password"
-        required
+        isRequired
       />
 
       <Button color="primary" type="submit" fullWidth isLoading={isPending}>
         Login
       </Button>
-      {isError && (
-        <Text className="max-w-96 text-sm italic text-red-500">
-          {error.message}
-        </Text>
-      )}
+
+      <Text className="max-w-96 text-sm italic text-red-500">
+        {isError && error.message}
+      </Text>
     </form>
   );
 };

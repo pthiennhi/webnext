@@ -1,10 +1,9 @@
-import { useMutation } from "@tanstack/react-query";
-import { useRouter } from "next/navigation";
-import { setCookie } from "cookies-next";
-import { LoginService } from "@/services/auth";
 import { LOGIN_RESPONSE, Role } from "@/models/auth";
+import { LoginService } from "@/services/auth";
 import { useAuthStore } from "@/store/authStore";
-
+import { useMutation } from "@tanstack/react-query";
+import { setCookie } from "cookies-next";
+import { useRouter } from "next/navigation";
 
 export const useLogin = () => {
   const { setAuth } = useAuthStore();
@@ -20,8 +19,10 @@ export const useLogin = () => {
           role: role as Role,
           isAuth: true,
         });
+        setCookie("fullName", fullname);
+        setCookie("role", role); 
         setCookie("accessToken", accessToken);
-        router.push("/");
+        router.back();
       }
     },
   });
