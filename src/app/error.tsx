@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Button } from "@nextui-org/react";
-import { Surround, Text } from "@/components";
+import { Surround, Text } from "@/components/common";
 
 function ErrorPage() {
   return (

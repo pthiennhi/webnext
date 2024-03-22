@@ -22,8 +22,8 @@ import {
   HomeIcon,
   InfoSquareIcon,
   SendIcon,
-} from "@/components/icons/curved";
-import { Text, Surround } from "@/components/ui";
+} from "@/components/common/icons/curved";
+import { Text, Surround } from "@/components/common/ui";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
