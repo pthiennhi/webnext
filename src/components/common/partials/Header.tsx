@@ -99,7 +99,7 @@ export const Header = () => {
                 <DropdownItem
                   key="logout"
                   textValue="logout"
-                  // onClick={() => logout()}
+                  onClick={() => logout()}
                 >
                   <Surround className="flex items-center gap-2 text-danger-500">
                     <LogoutIcon />
