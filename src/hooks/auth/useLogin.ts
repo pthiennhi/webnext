@@ -1,5 +1,5 @@
 import { LOGIN_RESPONSE, Role } from "@/models/auth";
-import { LoginService } from "@/services/auth";
+import { FakeLoginService, LoginService } from "@/services/auth";
 import { useAuthStore } from "@/store/authStore";
 import { useMutation } from "@tanstack/react-query";
 import { setCookie } from "cookies-next";
@@ -9,7 +9,8 @@ export const useLogin = () => {
   const { setAuth } = useAuthStore();
   const router = useRouter();
   const mutation = useMutation({
-    mutationFn: LoginService,
+    // mutationFn: LoginService,
+    mutationFn: FakeLoginService,
     onSuccess: (res: LOGIN_RESPONSE) => {
       if (res.data) {
         const { accessToken, fullname, role } = res.data;

@@ -1,4 +1,4 @@
-import { Base, ProtectedAdmin } from "@/components";
+import { Base, ProtectedAdmin, Sidebar } from "@/components";
 import React from "react";
 
 export default function SmartHomeLayout({
@@ -8,7 +8,10 @@ export default function SmartHomeLayout({
 }) {
   return (
     <Base>
-      <ProtectedAdmin>{children}</ProtectedAdmin>
+      <ProtectedAdmin>
+        <Sidebar />
+        
+        {children}</ProtectedAdmin>
     </Base>
   );
 }

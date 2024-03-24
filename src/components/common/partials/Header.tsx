@@ -26,10 +26,12 @@ import {
   SettingIcon,
 } from "@/components/common/icons/curved";
 import { Role } from "@/models/auth";
+import { usePathname } from "next/navigation";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { fullName, role, logout } = useAuthStore();
+  const pathname = usePathname();
 
   return (
     <Navbar onMenuOpenChange={setIsMenuOpen} isBordered>
@@ -39,30 +41,30 @@ export const Header = () => {
           className="sm:hidden"
         />
         <NavbarBrand>
-          <Image
-            src="/next.svg"
-            alt="Logo"
-            width={64}
-            height={64}
-            unoptimized
-            priority
-            quality={100}
-          />
+          <Link href="/">
+            <Image
+              src="/next.svg"
+              alt="Logo"
+              width={64}
+              height={64}
+              unoptimized
+              priority
+              quality={100}
+            />
+          </Link>
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent className="hidden gap-3 sm:flex" justify="center">
+      <NavbarContent className="hidden gap-8 sm:flex" justify="center">
         {MENU_HEADER.map((item) => (
-          <NavbarItem key={`${item.label}`}>
-            <Button
-              as={Link}
+          <NavbarItem key={`${item.label}`} isActive={item.href === pathname}>
+            <Link
               href={item.href}
-              variant="light"
               className="flex flex-row items-center justify-center gap-2"
             >
               <Text>{item.icon}</Text>
               <Text>{item.label}</Text>
-            </Button>
+            </Link>
           </NavbarItem>
         ))}
       </NavbarContent>
