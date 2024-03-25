@@ -1,12 +1,12 @@
-import { Base, Header } from "@/components/common";
+import { Base, Footer, Header, Surround } from "@/components/common";
 import React from "react";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  
   return (
     <Base>
       <Header />
-      <main className="container mx-auto">{children}</main>
+      <Surround>{children}</Surround>
+      <Footer />
     </Base>
   );
 }
