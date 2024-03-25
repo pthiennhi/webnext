@@ -4,7 +4,7 @@ import { useAuthStore } from "@/store/authStore";
 import { Spinner } from "@nextui-org/react";
 import { getCookie } from "cookies-next";
 import React, { useEffect, useState } from "react";
-import { Surround } from "@/components/common/ui";
+import { Div } from "@/components/common/ui";
 
 export const Base = ({ children }: { children: React.ReactNode }) => {
   const { setAuth, accessToken } = useAuthStore();
@@ -34,9 +34,9 @@ export const Base = ({ children }: { children: React.ReactNode }) => {
 
   if (isLoading) {
     return (
-      <Surround className="flex h-screen items-center justify-center">
+      <Div className="flex h-screen items-center justify-center">
         <Spinner size="md" />
-      </Surround>
+      </Div>
     );
   }
   return <>{children}</>;

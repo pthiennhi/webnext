@@ -1,5 +1,5 @@
 import React from "react";
-import { Surround, Text } from "@/components/common/ui";
+import { Div, Text } from "@/components/common/ui";
 
 type ISectionProps = {
   title?: string;
@@ -9,23 +9,23 @@ type ISectionProps = {
 };
 export const Section = (props: ISectionProps) => {
   return (
-    <Surround
+    <Div
       className={`mx-auto max-w-screen-lg px-3 ${
         props.yPadding ? props.yPadding : "py-16"
       }`}
     >
       {(props.title || props.description) && (
-        <Surround className="mb-12 text-center">
+        <Div className="mb-12 text-center">
           {props.title && (
             <Text className="text-4xl font-bold text-gray-900">{props.title}</Text>
           )}
           {props.description && (
-            <Surround className="mt-4 text-xl md:px-20">{props.description}</Surround>
+            <Div className="mt-4 text-xl md:px-20">{props.description}</Div>
           )}
-        </Surround>
+        </Div>
       )}
 
       {props.children}
-    </Surround>
+    </Div>
   );
 };

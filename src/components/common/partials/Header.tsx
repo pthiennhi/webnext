@@ -1,5 +1,5 @@
 "use client";
-import { Surround, Text } from "@/components/common/ui";
+import { Div, Text } from "@/components/common/ui";
 import { MENU_HEADER } from "@/constants/menuHeader";
 import { useAuthStore } from "@/store/authStore";
 import {
@@ -75,10 +75,10 @@ export const Header = () => {
           {fullName && role ? (
             <NavbarItem className="flex items-center gap-2">
               <Avatar name={fullName} size="md" />
-              <Surround className="flex flex-col">
+              <Div className="flex flex-col">
                 <Text className="text-sm font-bold">{fullName}</Text>
                 <Text className="text-xs">{role}</Text>
-              </Surround>
+              </Div>
               <Dropdown>
                 <DropdownTrigger>
                   <Button isIconOnly variant="light">
@@ -107,10 +107,10 @@ export const Header = () => {
                     textValue="logout"
                     onClick={() => logout()}
                   >
-                    <Surround className="flex items-center gap-2 text-danger-500">
+                    <Div className="flex items-center gap-2 text-danger-500">
                       <LogoutIcon />
                       <Text>Logout</Text>
-                    </Surround>
+                    </Div>
                   </DropdownItem>
                 </DropdownMenu>
               </Dropdown>

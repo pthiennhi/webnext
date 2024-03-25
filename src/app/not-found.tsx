@@ -1,11 +1,11 @@
 import Link from "next/link";
 import { Button } from "@nextui-org/react";
-import { Surround, Text } from "@/components/common";
+import { Div, Text } from "@/components/common";
 
 function NotFoundPage() {
   return (
     <main>
-      <Surround className="flex flex-col items-center py-40 text-zinc-900 dark:text-zinc-50">
+      <Div className="flex flex-col items-center py-40 text-zinc-900 dark:text-zinc-50">
         <Text className="text-4xl font-bold md:text-5xl" aria-label="404">
           4💡4
         </Text>
@@ -22,7 +22,7 @@ function NotFoundPage() {
             Go Home
           </Button>
         </Link>
-      </Surround>
+      </Div>
     </main>
   );
 }

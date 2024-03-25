@@ -1,4 +1,4 @@
-export const Surround = ({
+export const Div = ({
   props,
   className,
   children,

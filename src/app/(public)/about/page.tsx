@@ -1,23 +1,23 @@
-import { Surround, Text } from "@/components";
+import { Div, Text } from "@/components";
 import { TECH_STACK } from "@/constants/techStack";
 import { Avatar } from "@nextui-org/react";
 import { useId } from "react";
 
 export default function AboutPage() {
   return (
-    <Surround className="container mx-auto">
-      <Surround className="my-10 flex w-full flex-col flex-wrap items-center justify-start gap-10">
+    <Div className="container mx-auto">
+      <Div className="my-10 flex w-full flex-col flex-wrap items-center justify-start gap-10">
         <Text className="max-w-3xl text-center text-2xl font-bold tracking-tight text-gray-900 drop-shadow-xl duration-200 dark:text-gray-100 lg:text-3xl xl:text-4xl">
           About us
         </Text>
-        <Surround className="shadow-card flex w-full flex-wrap items-center justify-center gap-10 rounded-xl bg-white px-10 dark:bg-zinc-800 md:flex-row md:justify-start md:gap-20">
-          <Surround className="aspect-square h-80 w-80">
+        <Div className="shadow-card flex w-full flex-wrap items-center justify-center gap-10 rounded-xl bg-white px-10 dark:bg-zinc-800 md:flex-row md:justify-start md:gap-20">
+          <Div className="aspect-square h-80 w-80">
             <Avatar
               src="/chickies.jpg"
               className="aspect-square h-80 w-80 object-cover"
             />
-          </Surround>
-          <Surround className="flex w-full flex-1 flex-col">
+          </Div>
+          <Div className="flex w-full flex-1 flex-col">
             <Text className="mb-4 text-4xl font-semibold text-gray-700 dark:text-gray-200">
               Hey, We&apos;re{" "}
               <span className="whitespace-nowrap text-violet-500">
@@ -38,27 +38,27 @@ export default function AboutPage() {
               world. Our members come from various backgrounds, bringing a rich
               mix of experiences and expertise to the table.
             </Text>
-          </Surround>
-        </Surround>
-        <Surround className="shadow-card flex w-full flex-col items-center gap-10 rounded-xl bg-white px-20 py-10 dark:bg-zinc-800 lg:gap-20">
-          <Surround className="flex gap-2 text-center text-4xl font-semibold text-gray-700 dark:text-gray-200">
+          </Div>
+        </Div>
+        <Div className="shadow-card flex w-full flex-col items-center gap-10 rounded-xl bg-white px-20 py-10 dark:bg-zinc-800 lg:gap-20">
+          <Div className="flex gap-2 text-center text-4xl font-semibold text-gray-700 dark:text-gray-200">
             Our
             <Text className="whitespace-nowrap text-violet-500">
               Tech Stack
             </Text>
-          </Surround>
-          <Surround className="mb-5 flex w-full max-w-max flex-col items-start gap-10">
+          </Div>
+          <Div className="mb-5 flex w-full max-w-max flex-col items-start gap-10">
             {TECH_STACK.map((stack) => (
-              <Surround
+              <Div
                 key={useId()}
                 className="flex w-full flex-col items-center justify-start gap-2 lg:flex-row lg:items-start"
               >
                 <Text className="w-fit py-2 text-center text-2xl font-semibold text-gray-700 dark:text-gray-200 lg:w-60 lg:text-left">
                   {stack.title}
                 </Text>
-                <Surround className="flex flex-row flex-wrap items-center justify-center gap-5 lg:justify-start">
+                <Div className="flex flex-row flex-wrap items-center justify-center gap-5 lg:justify-start">
                   {stack.items.map((item) => (
-                    <Surround
+                    <Div
                       key={useId()}
                       className="flex h-full w-32 flex-col items-center justify-between gap-2"
                     >
@@ -66,14 +66,14 @@ export default function AboutPage() {
                       <Text className="text-sm text-gray-500 dark:text-gray-400">
                         {item.name}
                       </Text>
-                    </Surround>
+                    </Div>
                   ))}
-                </Surround>
-              </Surround>
+                </Div>
+              </Div>
             ))}
-          </Surround>
-        </Surround>
-      </Surround>
-    </Surround>
+          </Div>
+        </Div>
+      </Div>
+    </Div>
   );
 }

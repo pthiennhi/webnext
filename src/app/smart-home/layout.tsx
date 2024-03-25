@@ -1,4 +1,4 @@
-import { Base, ProtectedAdmin, Sidebar, Surround } from "@/components";
+import { Base, ProtectedAdmin, Sidebar, Div } from "@/components";
 import React from "react";
 
 export default function SmartHomeLayout({
@@ -9,10 +9,10 @@ export default function SmartHomeLayout({
   return (
     <Base>
       <ProtectedAdmin>
-        <Surround className="w-screen flex flex-row bg-default/10">
+        <Div className="w-screen flex flex-row bg-default/10">
           <Sidebar />
           {children}
-        </Surround>
+        </Div>
       </ProtectedAdmin>
     </Base>
   );

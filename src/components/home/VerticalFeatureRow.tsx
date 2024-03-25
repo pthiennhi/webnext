@@ -1,6 +1,6 @@
 "use client";
 
-import { Surround, Text } from "@/components/common/ui";
+import { Div, Text } from "@/components/common/ui";
 import { cn } from "@/libs/utils";
 import Image from "next/image";
 
@@ -14,28 +14,28 @@ type IVerticalFeatureRowProps = {
 
 export const VerticalFeatureRow = (props: IVerticalFeatureRowProps) => {
   return (
-    <Surround
+    <Div
       className={cn("mt-20 flex flex-wrap items-center", {
         "flex-row-reverse": props.reverse,
       })}
     >
-      <Surround className="w-full text-center sm:w-1/2 sm:px-6">
+      <Div className="w-full text-center sm:w-1/2 sm:px-6">
         <Text className="text-3xl font-semibold text-gray-900">
           {props.title}
         </Text>
-        <Surround className="mt-6 text-xl leading-9">
+        <Div className="mt-6 text-xl leading-9">
           {props.description}
-        </Surround>
-      </Surround>
+        </Div>
+      </Div>
 
-      <Surround className="w-full p-6 sm:w-1/2">
+      <Div className="w-full p-6 sm:w-1/2">
         <Image
           src={props.image}
           alt={props.imageAlt}
           width={400}
           height={400}
         />
-      </Surround>
-    </Surround>
+      </Div>
+    </Div>
   );
 };

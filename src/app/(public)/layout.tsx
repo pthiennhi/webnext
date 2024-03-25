@@ -1,11 +1,11 @@
-import { Base, Footer, Header, Surround } from "@/components/common";
+import { Base, Footer, Header, Div } from "@/components/common";
 import React from "react";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <Header />
-      <Surround>{children}</Surround>
+      <Div>{children}</Div>
       <Footer />
     </>
   );

@@ -1,4 +1,4 @@
-import { Section, Surround } from "@/components";
+import { Section, Div } from "@/components";
 import { Hero, VerticalFeatureRow } from "@/components/home";
 import { Fragment } from "react";
 
@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <Fragment>
       <Hero />
-      <Surround className="container mx-auto">
+      <Div className="container mx-auto">
         <Section
           title="Your title here"
           description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus malesuada nisi tellus, non imperdiet nisi tempor at."
@@ -40,7 +40,7 @@ export default function Home() {
             reverse
           />
         </Section>
-      </Surround>
+      </Div>
     </Fragment>
   );
 }

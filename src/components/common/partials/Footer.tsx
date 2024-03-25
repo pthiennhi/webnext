@@ -1,4 +1,4 @@
-import { Background, Section, Surround, Text } from "@/components/common/ui";
+import { Background, Section, Div, Text } from "@/components/common/ui";
 import { MENU_HEADER } from "@/constants/menuHeader";
 import Image from "next/image";
 import {
@@ -12,7 +12,7 @@ import { Link } from "@nextui-org/react";
 export const Footer = () => (
   <Background color="bg-primary/5">
     <Section>
-      <Surround className="text-center">
+      <Div className="text-center">
         <Link href="/" className="flex justify-center" color="foreground">
           <Image
             src="/next.svg"
@@ -24,7 +24,7 @@ export const Footer = () => (
             quality={100}
           />
         </Link>
-        <Surround className="mt-5 flex flex-row justify-center gap-4">
+        <Div className="mt-5 flex flex-row justify-center gap-4">
           {MENU_HEADER.map((item) => (
             <Link
               color="foreground"
@@ -35,9 +35,9 @@ export const Footer = () => (
               <Text>{item.label}</Text>
             </Link>
           ))}
-        </Surround>
-        <Surround className="mt-8 flex justify-center">
-          <Surround className="flex flex-wrap gap-2">
+        </Div>
+        <Div className="mt-8 flex justify-center">
+          <Div className="flex flex-wrap gap-2">
             <Link href="/" color="foreground">
               <IoLogoFacebook size="24" className="text-default-400" />
             </Link>
@@ -50,12 +50,12 @@ export const Footer = () => (
             <Link href="/" color="foreground">
               <IoLogoTiktok size="24" className="text-default-400" />
             </Link>
-          </Surround>
-        </Surround>
-        <Surround className="mt-8 text-sm">
+          </Div>
+        </Div>
+        <Div className="mt-8 text-sm">
           <Text>&copy; 2024 Your Company. All rights reserved.</Text>
-        </Surround>
-      </Surround>
+        </Div>
+      </Div>
     </Section>
   </Background>
 );

@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { Surround } from '.';
+import { Div } from '.';
 
 type IBackgroundProps = {
   children: ReactNode;
@@ -7,7 +7,7 @@ type IBackgroundProps = {
 };
 
 export const Background = (props: IBackgroundProps) => (
-  <Surround className={props.color}>{props.children}</Surround>
+  <Div className={props.color}>{props.children}</Div>
 );
 
 
