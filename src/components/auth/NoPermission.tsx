@@ -16,14 +16,11 @@ export default function NoPermission() {
         </Text>
         <Text className="mt-10 text-center text-base font-medium md:text-xl">
           Sorry, you don't have permission to access this page.
-         <br />
+          <br />
           Please login or contact the administrator.
         </Text>
         <Link href="/" className="mt-5">
-          <Button
-            title="Go Home"
-            className="rounded-md border border-gray-300 bg-violet-500 px-5 py-2 text-lg font-bold text-gray-50 shadow duration-200 hover:bg-violet-700 dark:border-gray-500 dark:text-gray-50"
-          >
+          <Button title="Go Home" color="primary" size="lg" variant="shadow">
             Go Home
           </Button>
         </Link>
@@ -31,4 +28,3 @@ export default function NoPermission() {
     </main>
   );
 }
-

@@ -1,8 +1,7 @@
 import React from "react";
 import { Background, Section, Surround, Text } from "@/components/common/ui";
-import Link from "next/link";
-import { Button } from "@nextui-org/react";
-import { SendIcon } from "../common/icons/curved";
+import { Button, Link } from "@nextui-org/react";
+import { SendIcon } from "@/components/common/icons/curved";
 
 export const Hero = () => {
   return (
@@ -17,7 +16,7 @@ export const Hero = () => {
             The easiest way to build a React landing page in seconds.
           </Surround>
 
-          <Link href="/smart-home">
+          <Link href="/smart-home" color="foreground">
             <Button
               color="primary"
               variant="shadow"

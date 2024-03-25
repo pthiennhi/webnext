@@ -1,14 +1,19 @@
 import { Background, Section, Surround, Text } from "@/components/common/ui";
 import { MENU_HEADER } from "@/constants/menuHeader";
 import Image from "next/image";
-import Link from "next/link";
-import { IoLogoFacebook, IoLogoLinkedin, IoLogoReddit, IoLogoTiktok } from "..";
+import {
+  IoLogoFacebook,
+  IoLogoLinkedin,
+  IoLogoReddit,
+  IoLogoTiktok,
+} from "@/components/common/icons";
+import { Link } from "@nextui-org/react";
 
 export const Footer = () => (
   <Background color="bg-primary/5">
     <Section>
       <Surround className="text-center">
-        <Link href="/" className="flex justify-center">
+        <Link href="/" className="flex justify-center" color="foreground">
           <Image
             src="/next.svg"
             alt="Logo"
@@ -22,6 +27,7 @@ export const Footer = () => (
         <Surround className="mt-5 flex flex-row justify-center gap-4">
           {MENU_HEADER.map((item) => (
             <Link
+              color="foreground"
               key={`${item.label}`}
               href={item.href}
               className="flex flex-row items-center justify-center gap-2"
@@ -32,17 +38,17 @@ export const Footer = () => (
         </Surround>
         <Surround className="mt-8 flex justify-center">
           <Surround className="flex flex-wrap gap-2">
-            <Link href="/">
-              <IoLogoFacebook size="24" className="text-default-400"/>
+            <Link href="/" color="foreground">
+              <IoLogoFacebook size="24" className="text-default-400" />
             </Link>
-            <Link href="/">
-              <IoLogoLinkedin size="24" className="text-default-400"/>
+            <Link href="/" color="foreground">
+              <IoLogoLinkedin size="24" className="text-default-400" />
             </Link>
-            <Link href="/">
+            <Link href="/" color="foreground">
               <IoLogoReddit size="24" className="text-default-400" />
             </Link>
-            <Link href="/">
-              <IoLogoTiktok size="24" className="text-default-400"/>
+            <Link href="/" color="foreground">
+              <IoLogoTiktok size="24" className="text-default-400" />
             </Link>
           </Surround>
         </Surround>

@@ -23,7 +23,6 @@ export const useAuthStore = create<AuthState & AuthActions>((set) => ({
   logout: () => {
     set({ accessToken: "", fullName: "", role: Role.User, isAuth: false });
     deleteCookie("accessToken");
-    deleteCookie("fullName");
-    deleteCookie("role");
+    deleteCookie("profile");
   },
 }));

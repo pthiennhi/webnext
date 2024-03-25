@@ -1,5 +1,3 @@
-import React, { useId } from "react";
-
 export const Surround = ({
   props,
   className,
@@ -8,7 +6,7 @@ export const Surround = ({
   props?: React.HTMLAttributes<HTMLParagraphElement>;
   className?: string;
   children: React.ReactNode;
-}) => {
+} & React.HTMLAttributes<HTMLDivElement>) => {
   return (
     <div {...props} className={className}>
       {children}

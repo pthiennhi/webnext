@@ -9,6 +9,7 @@ import {
   DropdownItem,
   DropdownMenu,
   DropdownTrigger,
+  Link,
   Navbar,
   NavbarBrand,
   NavbarContent,
@@ -18,7 +19,6 @@ import {
   NavbarMenuToggle,
 } from "@nextui-org/react";
 import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react";
 import {
   ArrowDownIcon,
@@ -27,6 +27,7 @@ import {
 } from "@/components/common/icons/curved";
 import { Role } from "@/models/auth";
 import { usePathname } from "next/navigation";
+import { Base } from ".";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -41,7 +42,7 @@ export const Header = () => {
           className="sm:hidden"
         />
         <NavbarBrand>
-          <Link href="/">
+          <Link href="/" color="foreground">
             <Image
               src="/next.svg"
               alt="Logo"
@@ -59,6 +60,7 @@ export const Header = () => {
         {MENU_HEADER.map((item) => (
           <NavbarItem key={`${item.label}`} isActive={item.href === pathname}>
             <Link
+              color="foreground"
               href={item.href}
               className="flex flex-row items-center justify-center gap-2"
             >
@@ -69,55 +71,58 @@ export const Header = () => {
         ))}
       </NavbarContent>
       <NavbarContent justify="end">
-        {fullName && role ? (
-          <NavbarItem className="flex items-center gap-2">
-            <Avatar name={fullName} size="md" />
-            <Surround className="flex flex-col">
-              <Text className="text-sm font-bold">{fullName}</Text>
-              <Text className="text-xs">{role}</Text>
-            </Surround>
-            <Dropdown>
-              <DropdownTrigger>
-                <Button isIconOnly variant="light">
-                  <ArrowDownIcon />
-                </Button>
-              </DropdownTrigger>
-              <DropdownMenu aria-label="Static Actions">
-                <DropdownItem
-                  key="smart-home"
-                  textValue="smart-home"
-                  className={`${!(role === Role.Admin) ? "hidden" : ""}`}
-                >
-                  {role === Role.Admin && (
-                    <Link
-                      href="/smart-home"
-                      className="flex items-center gap-2"
-                    >
-                      <SettingIcon />
-                      <Text>Go to Smart Home</Text>
-                    </Link>
-                  )}
-                </DropdownItem>
-                <DropdownItem
-                  key="logout"
-                  textValue="logout"
-                  onClick={() => logout()}
-                >
-                  <Surround className="flex items-center gap-2 text-danger-500">
-                    <LogoutIcon />
-                    <Text>Logout</Text>
-                  </Surround>
-                </DropdownItem>
-              </DropdownMenu>
-            </Dropdown>
-          </NavbarItem>
-        ) : (
-          <NavbarItem>
-            <Button as={Link} color="primary" href="/login" variant="flat">
-              Login
-            </Button>
-          </NavbarItem>
-        )}
+        <Base>
+          {fullName && role ? (
+            <NavbarItem className="flex items-center gap-2">
+              <Avatar name={fullName} size="md" />
+              <Surround className="flex flex-col">
+                <Text className="text-sm font-bold">{fullName}</Text>
+                <Text className="text-xs">{role}</Text>
+              </Surround>
+              <Dropdown>
+                <DropdownTrigger>
+                  <Button isIconOnly variant="light">
+                    <ArrowDownIcon />
+                  </Button>
+                </DropdownTrigger>
+                <DropdownMenu aria-label="Static Actions">
+                  <DropdownItem
+                    key="smart-home"
+                    textValue="smart-home"
+                    className={`${!(role === Role.Admin) ? "hidden" : ""}`}
+                  >
+                    {role === Role.Admin && (
+                      <Link
+                        color="foreground"
+                        href="/smart-home"
+                        className="flex items-center gap-2"
+                      >
+                        <SettingIcon />
+                        <Text>Go to Smart Home</Text>
+                      </Link>
+                    )}
+                  </DropdownItem>
+                  <DropdownItem
+                    key="logout"
+                    textValue="logout"
+                    onClick={() => logout()}
+                  >
+                    <Surround className="flex items-center gap-2 text-danger-500">
+                      <LogoutIcon />
+                      <Text>Logout</Text>
+                    </Surround>
+                  </DropdownItem>
+                </DropdownMenu>
+              </Dropdown>
+            </NavbarItem>
+          ) : (
+            <NavbarItem>
+              <Button as={Link} color="primary" href="/login" variant="flat">
+                Login
+              </Button>
+            </NavbarItem>
+          )}
+        </Base>
       </NavbarContent>
       <NavbarMenu>
         {MENU_HEADER.map((item) => (
