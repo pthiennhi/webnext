@@ -24,61 +24,61 @@ export const Sidebar = () => {
       subMenu: [
         {
           label: "Devices 1",
-          href: "/smart-home/device/1",
+          href: "/smart-home/1",
           icon: <SettingIcon />,
         },
         {
           label: "Device 2",
-          href: "/smart-home/device/2",
+          href: "/smart-home/2",
           icon: <SettingIcon />,
         },
         {
           label: "Device 3",
-          href: "/smart-home/device/3",
+          href: "/smart-home/3",
           icon: <SettingIcon />,
         },
         {
           label: "Device 4",
-          href: "/smart-home/device/4",
+          href: "/smart-home/4",
           icon: <SettingIcon />,
         },
         {
           label: "Device 5",
-          href: "/smart-home/device/5",
+          href: "/smart-home/5",
           icon: <SettingIcon />,
         },
         {
           label: "Device 6",
-          href: "/smart-home/device/6",
+          href: "/smart-home/6",
           icon: <SettingIcon />,
         },
         {
           label: "Device 7",
-          href: "/smart-home/device/7",
+          href: "/smart-home/7",
           icon: <SettingIcon />,
         },
         {
           label: "Device 8",
-          href: "/smart-home/device/8",
+          href: "/smart-home/8",
           icon: <SettingIcon />,
         },
         {
           label: "Device 9",
-          href: "/smart-home/device/9",
+          href: "/smart-home/9",
           icon: <SettingIcon />,
         },
         {
           label: "Device 10",
-          href: "/smart-home/device/10",
+          href: "/smart-home/10",
           icon: <SettingIcon />,
-        }
+        },
       ],
     },
   ];
   return (
     <Div className="h-screen w-80 p-4">
       <Div className="flex h-full flex-col rounded-xl bg-white p-4 shadow-sm">
-        <Div className="h-full flex-1">
+        <Div className="h-5/6 overflow-y-scroll">
           <Link
             href="/"
             color="foreground"
@@ -93,7 +93,7 @@ export const Sidebar = () => {
             />
           </Link>
           <Divider />
-          <Div className="flex flex-col gap-4">
+          <Div className="flex flex-col">
             {MENU_SIDEBAR.map((item) => (
               <Accordion key={item.href}>
                 <AccordionItem
@@ -110,18 +110,20 @@ export const Sidebar = () => {
                     </Link>
                   }
                 >
-                  {item.subMenu?.map((subItem) => (
-                    <Button
-                      as={Link}
-                      key={subItem.href}
-                      href={subItem.href}
-                      variant={pathName === subItem.href ? "solid" : "light"}
-                      className="mb-2.5 ms-2 flex flex-row items-center justify-start gap-2"
-                    >
-                      <Text>{subItem.icon}</Text>
-                      <Text>{subItem.label}</Text>
-                    </Button>
-                  ))}
+                  <Div>
+                    {item.subMenu?.map((subItem) => (
+                      <Button
+                        as={Link}
+                        key={subItem.href}
+                        href={subItem.href}
+                        variant={pathName === subItem.href ? "solid" : "light"}
+                        className="mb-2.5 ms-2 flex flex-row items-center justify-start gap-2"
+                      >
+                        <Text>{subItem.icon}</Text>
+                        <Text>{subItem.label}</Text>
+                      </Button>
+                    ))}
+                  </Div>
                 </AccordionItem>
               </Accordion>
             ))}
@@ -129,19 +131,21 @@ export const Sidebar = () => {
         </Div>
 
         {fullName && (
-          <Div className="flex w-full items-center rounded-2xl bg-default/5 p-2 shadow-md">
-            <Div className="flex flex-1 items-center gap-4">
-              <Avatar name={fullName} size="sm" />
-              <Text className="text-sm font-bold">{fullName}</Text>
+          <Div className="flex h-1/6 w-full items-end">
+            <Div className="flex w-full rounded-2xl bg-default/5 p-2 shadow-md">
+              <Div className="flex flex-1 items-center gap-4">
+                <Avatar name={fullName} size="sm" />
+                <Text className="text-sm font-bold">{fullName}</Text>
+              </Div>
+              <Button
+                variant="light"
+                size="sm"
+                isIconOnly
+                onClick={() => logout()}
+              >
+                <LogoutIcon />
+              </Button>
             </Div>
-            <Button
-              variant="light"
-              size="sm"
-              isIconOnly
-              onClick={() => logout()}
-            >
-              <LogoutIcon />
-            </Button>
           </Div>
         )}
       </Div>

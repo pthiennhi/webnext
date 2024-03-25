@@ -18,7 +18,7 @@ export default function SmartHome() {
                 className="py-4"
                 key={useId()}
                 as={Link}
-                href={`/smart-home/device/${i+1}`}
+                href={`/smart-home/${i+1}`}
               >
                 <CardHeader className="flex-col items-start px-4 pb-0 pt-2">
                   <Text className="text-tiny font-bold uppercase">
