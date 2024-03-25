@@ -9,7 +9,6 @@ import {
   DropdownItem,
   DropdownMenu,
   DropdownTrigger,
-  Link,
   Navbar,
   NavbarBrand,
   NavbarContent,
@@ -28,6 +27,7 @@ import {
 import { Role } from "@/models/auth";
 import { usePathname } from "next/navigation";
 import { Base } from ".";
+import Link from "next/link";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
