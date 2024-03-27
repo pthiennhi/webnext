@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import { Div, Text } from "@/components";
 import { Card, CardBody, CardHeader } from "@nextui-org/react";
 import Image from "next/image";

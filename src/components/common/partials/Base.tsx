@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import { Role } from "@/models/auth";
 import { useAuthStore } from "@/store/authStore";

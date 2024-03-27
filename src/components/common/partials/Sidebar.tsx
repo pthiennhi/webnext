@@ -1,5 +1,5 @@
 "use client";
-import { LogoutIcon, SettingIcon } from "@/components/common/icons/curved";
+import { LogoutIcon, SettingIcon, DeviceIcon, HomeIcon } from "@/components/common/icons/curved";
 import { Div, Text } from "@/components/common/ui";
 import { useAuthStore } from "@/store/authStore";
 import {
@@ -20,57 +20,17 @@ export const Sidebar = () => {
     {
       label: "All devices",
       href: "/smart-home",
-      icon: <SettingIcon />,
+      icon: <DeviceIcon />,
       subMenu: [
         {
-          label: "Devices 1",
-          href: "/smart-home/1",
-          icon: <SettingIcon />,
+          label: "Demo Device",
+          href: "/smart-home/1001",
+          icon: <HomeIcon />,
         },
         {
-          label: "Device 2",
-          href: "/smart-home/2",
-          icon: <SettingIcon />,
-        },
-        {
-          label: "Device 3",
-          href: "/smart-home/3",
-          icon: <SettingIcon />,
-        },
-        {
-          label: "Device 4",
-          href: "/smart-home/4",
-          icon: <SettingIcon />,
-        },
-        {
-          label: "Device 5",
-          href: "/smart-home/5",
-          icon: <SettingIcon />,
-        },
-        {
-          label: "Device 6",
-          href: "/smart-home/6",
-          icon: <SettingIcon />,
-        },
-        {
-          label: "Device 7",
-          href: "/smart-home/7",
-          icon: <SettingIcon />,
-        },
-        {
-          label: "Device 8",
-          href: "/smart-home/8",
-          icon: <SettingIcon />,
-        },
-        {
-          label: "Device 9",
-          href: "/smart-home/9",
-          icon: <SettingIcon />,
-        },
-        {
-          label: "Device 10",
-          href: "/smart-home/10",
-          icon: <SettingIcon />,
+          label: "MicroBit Chickies",
+          href: "/smart-home/-1946710095",
+          icon: <HomeIcon />,
         },
       ],
     },

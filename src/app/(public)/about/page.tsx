@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import { Div, Text } from "@/components";
 import { TECH_STACK } from "@/constants/techStack";
 import { Avatar } from "@nextui-org/react";
