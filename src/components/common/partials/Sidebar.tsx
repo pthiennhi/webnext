@@ -4,7 +4,7 @@ import {
   HomeIcon,
   LogoutIcon,
 } from "@/components/common/icons/curved";
-import { Div, Text } from "@/components/common/ui";
+import { Div, Logo, Text } from "@/components/common/ui";
 import useDevices from "@/hooks/device/useDevices";
 import { useAuthStore } from "@/store/authStore";
 import {
@@ -14,7 +14,6 @@ import {
   Button,
   Divider,
 } from "@nextui-org/react";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -27,19 +26,7 @@ export const Sidebar = () => {
     <Div className="h-screen w-80 p-4">
       <Div className="flex h-full flex-col rounded-xl bg-white p-4 shadow-sm">
         <Div className="h-5/6 overflow-y-scroll">
-          <Link
-            href="/"
-            color="foreground"
-            className="mb-4 flex justify-center"
-          >
-            <Image
-              src="/chik.svg"
-              alt="Logo"
-              width={64}
-              height={64}
-              quality={100}
-            />
-          </Link>
+          <Logo/>
           <Divider />
           <Div className="flex flex-col">
             <Accordion>
