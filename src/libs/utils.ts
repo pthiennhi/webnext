@@ -22,3 +22,36 @@ export const hexToRGB = (h:any) => {
   return `${+r},${+g},${+b}`;
 };
 
+
+export function findTangentVector(pointX, pointY, circleRadius) {
+  var distance = Math.sqrt(pointX * pointX + pointY * pointY);
+  if (distance < circleRadius) return null;
+  var angle = Math.atan2(pointY, pointX);
+  var tangentAngle = Math.acos(circleRadius / distance);
+  var tangentVectorAngle1 = angle + tangentAngle;
+  var tangentVectorAngle2 = angle - tangentAngle;
+  var tangentVector1 = {
+      x: circleRadius * Math.cos(tangentVectorAngle1),
+      y: circleRadius * Math.sin(tangentVectorAngle1)
+  };
+  var tangentVector2 = {
+      x: circleRadius * Math.cos(tangentVectorAngle2),
+      y: circleRadius * Math.sin(tangentVectorAngle2)
+  };
+  return [tangentVector1, tangentVector2];
+}
+
+export function getPeriodOfDay() {
+  const now = new Date();
+  const hour = now.getHours();
+
+  if (hour >= 0 && hour < 6) {
+    return "night";
+  } else if (hour >= 6 && hour < 12) {
+    return "morning";
+  } else if (hour >= 12 && hour < 18) {
+    return "afternoon";
+  } else {
+    return "night";
+  }
+}

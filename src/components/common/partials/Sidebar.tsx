@@ -1,6 +1,7 @@
 "use client";
 import { LogoutIcon, SettingIcon, DeviceIcon, HomeIcon } from "@/components/common/icons/curved";
 import { Div, Text } from "@/components/common/ui";
+import useDevices from "@/hooks/device/useDevices";
 import { useAuthStore } from "@/store/authStore";
 import {
   Accordion,
@@ -16,6 +17,11 @@ import { usePathname } from "next/navigation";
 export const Sidebar = () => {
   const { fullName, logout } = useAuthStore();
   const pathName = usePathname();
+  const {data} = useDevices({ownerId: 1});
+  console.log({
+    data
+  });
+  
   const MENU_SIDEBAR = [
     {
       label: "All devices",
@@ -54,7 +60,7 @@ export const Sidebar = () => {
           </Link>
           <Divider />
           <Div className="flex flex-col">
-            {MENU_SIDEBAR.map((item) => (
+            {/* {MENU_SIDEBAR.map((item) => (
               <Accordion key={item.href}>
                 <AccordionItem
                   textValue={item.label}
@@ -86,7 +92,40 @@ export const Sidebar = () => {
                   </Div>
                 </AccordionItem>
               </Accordion>
-            ))}
+            ))} */}
+              <Accordion>
+                <AccordionItem
+                  textValue={""}
+                  // childItems={item.subMenu}
+                  title={
+                    <Link
+                      href={"/smart-home"}
+                      color="foreground"
+                      className="flex flex-row items-center justify-start gap-2"
+                    >
+                      <Text><DeviceIcon /></Text>
+                      <Text>All devices</Text>
+                    </Link>
+                  }
+                  >
+                  <Div>
+               
+                  {data?.map(d => (
+                      <Button
+                        as={Link}
+                        key={d.serialId}
+                        href={"/smart-home/"+d.serialId}
+                        variant={pathName === d.serialId ? "solid" : "light"}
+                        className="mb-2.5 ms-2 flex flex-row items-center justify-start gap-2"
+                      >
+                        <Text><HomeIcon /></Text>
+                        <Text>{d?.deviceName}</Text>
+                      </Button>
+                    ))
+                  }
+                  </Div>
+                </AccordionItem>
+              </Accordion>
           </Div>
         </Div>
 

@@ -16,6 +16,15 @@ import { Luffy } from "./Objects/Luffy";
 import { Goku } from "./Objects/Goku";
 import { Robber } from "./Objects/Robber";
 import { RobberDuck } from "./Objects/RobberDuck";
+import { Lamp } from "./Objects/Lamp";
+import Ground from "./house/Ground";
+import { ChickTrio } from "./Objects/ChickTrio";
+import { Chick } from "../../../public/Chick";
+import { Fox } from "./Objects/Fox";
+import { Shark } from "./Objects/Shark";
+import { Dragonite } from "./Objects/Dragonite";
+import { Racoon } from "./Objects/Racoon";
+import { Matilda } from "./Objects/Matilda";
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -120,6 +129,7 @@ interface HouseProp {
   doorOpen?: boolean;
   canopyOpen?: boolean;
   doorDetect?: boolean;
+  lightStatus?: boolean;
 }
 export function House(props: JSX.IntrinsicElements["group"] & HouseProp) {
   const { nodes, materials } = useGLTF("/iot2-transformed.glb") as GLTFResult;
@@ -623,12 +633,12 @@ export function House(props: JSX.IntrinsicElements["group"] & HouseProp) {
         material={materials.PaletteMaterial001}
         rotation={[-Math.PI / 2, 0, 0]}
       />
-      <mesh
+      {/* <mesh
         name="Plane_landscape_tiles_0"
         geometry={nodes.Plane_landscape_tiles_0.geometry}
         material={materials.landscape_tiles}
         rotation={[-Math.PI / 2, 0, 0]}
-      />
+      /> */}
       <mesh
         name="Plane008_shades_brown_0"
         geometry={nodes.Plane008_shades_brown_0.geometry}
@@ -705,7 +715,28 @@ export function House(props: JSX.IntrinsicElements["group"] & HouseProp) {
       {props?.canopyOpen && (
         <RainModel position={[0, -20, -5]} scale={[0.15, 0.15, 0.15]} />
       )}
+      <pointLight
+        intensity={3.75}
+        // ref={pointLightRef}
+        color={"#FFFFCC"}
+        position={[-0.1, 1.95, -5]}
+        decay={-2.2}
+        distance={5}
+      />
       {DootObject}
+      <Lamp position={[2.5,1.3,2]} scale={[1.3,1.3,1.3]} lightStatus={props.lightStatus}/>
+      <Lamp position={[-2.5,1.3,2]} scale={[1.3,1.3,1.3]} lightStatus={props.lightStatus}/>
+
+      
+      <Ground position={[0,1,0]}/>
+      {/* Decor */}
+      <ChickTrio position={[4.6,0,2]} scale={[0.8,0.8,0.8]} rotation={[0,-Math.PI/3,0]}/>
+      <Chick position={[-1,4.2,0.8]} scale={[0.6,0.6,0.6]} rotation={[0,-Math.PI/2,0]}/>
+      {/* <Fox  position={[-4.7,0.4,-1]}  scale={[0.6,0.6,0.6]} /> */}
+      <Shark  scale={[50,50,50]} position={[1,3.8,0.5]}/>
+      {/* <Dragonite position={[-4,0,1]} rotation={[0,Math.PI/4,0]} scale={[0.13,0.13,0.13]} /> */}
+      {/* <Racoon position={[0,0,0]} rotation={[0,-Math.PI/2,0]}/> */}
+      <Matilda position={[2,6.9,-1]}  scale={[0.01, 0.01, 0.01]}/>
     </group>
   );
 }

@@ -41,3 +41,30 @@ export const FakeLoginService = async ({
     },
   };
 }
+const BASE_URL = "https://iot.wyvernp.id.vn/api/v1/auth"
+
+export const LoginMain = async ({
+  username,
+  password,
+}: LOGIN_REQUEST): Promise<LOGIN_RESPONSE> => {
+  const response = await fetch(
+    `${BASE_URL}/login`,
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username, password }),
+    },
+  )
+    .then(async (res) => {
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.message);
+      } else {
+        return data;
+      }
+    })
+    .catch((error) => {
+      throw new Error(error);
+    });
+  return response;
+};
