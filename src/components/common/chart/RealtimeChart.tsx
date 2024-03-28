@@ -41,7 +41,7 @@ function RealtimeChart({
               drawBorder: false,
             },
             suggestedMin: 30,
-            suggestedMax: 80,
+            suggestedMax: 50,
             ticks: {
               maxTicksLimit: 5,
               // callback: (value) => formatValue(value),
@@ -60,7 +60,6 @@ function RealtimeChart({
             grid: {
               display: false,
               //@ts-ignore
-
               drawBorder: false,
             },
             ticks: {

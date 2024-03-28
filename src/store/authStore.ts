@@ -7,6 +7,7 @@ interface AuthState {
   fullName: string;
   role: Role;
   isAuth: boolean;
+  accountId?: number;
 }
 
 interface AuthActions {
@@ -19,9 +20,10 @@ export const useAuthStore = create<AuthState & AuthActions>((set) => ({
   fullName: "",
   role: Role.User,
   isAuth: false,
+  accountId: null,
   setAuth: (auth: AuthState) => set(auth),
   logout: () => {
-    set({ accessToken: "", fullName: "", role: Role.User, isAuth: false });
+    set({ accessToken: "", fullName: "", role: Role.User, isAuth: false, accountId: null });
     deleteCookie("accessToken");
     deleteCookie("profile");
   },

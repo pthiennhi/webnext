@@ -6,6 +6,7 @@ export type LOGIN_RESPONSE = {
         fullname: string;
         role: string;
         expirationTime: string;
+        accountId?: number
     } | null;
 };
 

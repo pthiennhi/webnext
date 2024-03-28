@@ -15,9 +15,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 export const Sidebar = () => {
-  const { fullName, logout } = useAuthStore();
+  const { fullName, logout, accountId } = useAuthStore();
   const pathName = usePathname();
-  const {data} = useDevices({ownerId: 1});
+  const {data} = useDevices({ownerId: accountId??1});
   console.log({
     data
   });

@@ -2,13 +2,15 @@
 "use client"
 import { Div, Text } from "@/components";
 import useDevices from "@/hooks/device/useDevices";
+import { useAuthStore } from "@/store/authStore";
 import { Card, CardBody, CardHeader } from "@nextui-org/react";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useId } from "react";
 
 export default function SmartHome() {
-  const {data} = useDevices({ownerId: 1});
+  const {accountId} = useAuthStore()
+  const {data} = useDevices({ownerId: accountId??1});
   return (
     <Div className="container mx-auto flex h-screen w-full flex-1 flex-col py-4">
       <Div className="flex h-full flex-col gap-8 overflow-x-scroll rounded-xl bg-white p-4">
