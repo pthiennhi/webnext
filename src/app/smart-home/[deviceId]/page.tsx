@@ -30,6 +30,8 @@ import Badge from "@/components/common/ui/Badge";
 import { DataService } from "@/services/data";
 import Camera from "@/components/model/Camera";
 import { getPeriodOfDay } from "@/libs/utils";
+import { useAuthStore } from "@/store/authStore";
+import Toggle from "@/components/common/partials/Toggle";
 const intensityMap = {
   night: 0.5,
   afternoon: 2,
@@ -38,7 +40,10 @@ const intensityMap = {
 export default function Device({ params }: { params: { deviceId: string } }) {
   const [socket, setSocket] = useState<HubConnection>();
   const customCamera = useRef();
-
+  // const {systemBaseTime,toggleSystemBaseTime } = useAuthStore()
+  const [systemBaseTime, setSystemBaseTime] = useState<boolean>(
+    localStorage.getItem("systemTime") === "true",
+  );
   // Access the three.js camera from the useThree hook
   // const { camera: defaultCamera } = useThree();
 
@@ -227,7 +232,7 @@ export default function Device({ params }: { params: { deviceId: string } }) {
     setAmbientIntensity(intensityMap[period]);
   }, []);
   console.log(period);
-  
+
   // Function to map a value from one range to another
   const mapRange = (value, start1, end1, start2, end2) => {
     return ((value - start1) * (end2 - start2)) / (end1 - start1) + start2;
@@ -235,9 +240,10 @@ export default function Device({ params }: { params: { deviceId: string } }) {
   return (
     <SocketContext.Provider value={socket ?? null}>
       <Div className="container mx-auto flex h-screen w-full flex-1 flex-col py-4">
-        <Div className="flex h-full flex-col gap-8 overflow-x-scroll rounded-xl bg-white p-4">
-          <Text className="text-center font-serif text-xl font-semibold">
-            Dashboard {params.deviceId}
+        <Div className="relative flex h-full flex-col gap-8 overflow-x-scroll rounded-xl bg-white p-4">
+          <Text className="text-center  text-4xl font-semibold">
+            {/* Dashboard {params.deviceId} */}
+            Device Information
           </Text>
           <Div className="flex flex-1 flex-col gap-2">
             <RealtimeDashboard
@@ -273,7 +279,7 @@ export default function Device({ params }: { params: { deviceId: string } }) {
               </div>
             </div>
             <div className="flex w-full gap-2 ">
-              <div className="col-span-full flex w-1/2 w-full basis-1/2 flex-col rounded-sm border border-gray-200 bg-white shadow-lg sm:col-span-6 ">
+              <div className="col-span-full flex w-full  flex-col rounded-sm border border-gray-200 bg-white shadow-lg sm:col-span-6 ">
                 <header className="flex items-center justify-between border-b border-gray-100 px-5  py-4">
                   <h2 className="font-semibold text-gray-800">{"Light 💡"}</h2>
                   {lightStatus === "1" ? (
@@ -283,16 +289,25 @@ export default function Device({ params }: { params: { deviceId: string } }) {
                   )}
                 </header>
               </div>
-              {/* <div className="col-span-full flex w-full flex-col rounded-sm border border-gray-200 bg-white shadow-lg sm:col-span-6 ">
+              <div className="col-span-full flex w-full flex-col rounded-sm border border-gray-200 bg-white shadow-lg sm:col-span-6 ">
                 <header className="justify flex items-center justify-between border-b border-gray-100 px-5 py-4">
-                  <h2 className="font-semibold text-gray-800">{"Canopy"}</h2>
-                  {canopyStatus === "1" ? (
-                    <Badge variant="green">OPEN</Badge>
-                  ) : (
-                    <Badge variant="red">CLOSE</Badge>
-                  )}
+                  <h2 className="font-semibold text-gray-800">
+                    {"System Time Base 🌖"}
+                  </h2>
+                  <div className="">
+                    <Toggle
+                      initValue={systemBaseTime}
+                      onToggleChange={(val) => {
+                        localStorage.setItem(
+                          "systemTime",
+                          val ? "true" : "false",
+                        );
+                        setSystemBaseTime(val);
+                      }}
+                    />
+                  </div>
                 </header>
-              </div> */}
+              </div>
             </div>
             {objectDetectStatus === "1" && (
               <div className="flex w-full gap-2 py-3">
@@ -320,14 +335,16 @@ export default function Device({ params }: { params: { deviceId: string } }) {
                 Canopy toggle
               </Button> */}
               <Canvas camera={{ position: [0, 0, 7], fov: 75 }} dpr={[1, 2]}>
-                <ambientLight intensity={ambientIntensity} />
+                <ambientLight
+                  intensity={systemBaseTime ? ambientIntensity : 3}
+                />
                 <OrbitControls />
 
                 {/* <mesh>
                   <boxGeometry args={[1000, 1000, 1000]} />
                   <meshBasicMaterial  map={cubeTexture} side={2} />
                 </mesh> */}
-                {period === "night" ? (
+                {period === "night" && systemBaseTime ? (
                   <Environment
                     background={true}
                     files={[

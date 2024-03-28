@@ -5,7 +5,7 @@ import {
 } from 'chart.js';
 import 'chartjs-adapter-moment';
 import { tailwindConfig } from '@/libs/twUtil';
-
+import moment from "moment"
 // Import utilities
 // import { tailwindConfig, formatValue } from '../../utils/Utils';
 
@@ -49,22 +49,25 @@ function RealtimeChart({
           },
           x: {
             type: 'time',
-            time: {
-              parser: 'hh:mm:ss',
-              unit: 'second',
-              tooltipFormat: 'MMM DD, H:mm:ss a',
-              displayFormats: {
-                second: 'H:mm:ss',
-              },
-            },
+            // title : {text: "12"},
+            // time: {
+            //   parser: 'hh:mm:ss',
+            //   unit: 'second',
+            //   tooltipFormat: 'MMM DD, H:mm:ss a',
+            //   displayFormats: {
+            //     second: 'H:mm:ss',
+            //   },
+            // },
             grid: {
               display: false,
               //@ts-ignore
               drawBorder: false,
             },
             ticks: {
-              autoSkipPadding: 48,
-              maxRotation: 0,
+              // autoSkipPadding: 48,
+              // maxRotation: 0,
+              callback: (value) => "",
+
             },
           },
         },
