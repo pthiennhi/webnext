@@ -21,7 +21,7 @@ export const useAuthStore = create<AuthState & AuthActions>((set) => ({
   accessToken: "",
   fullName: "",
   role: Role.Admin,
-  isAuth: true,
+  isAuth: false,
   accountId: null,
   systemBaseTime : true,
   setAuth: (auth: AuthState) => set(auth),
