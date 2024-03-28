@@ -50,22 +50,22 @@ function RealtimeChart({
           x: {
             type: 'time',
             // title : {text: "12"},
-            // time: {
-            //   parser: 'hh:mm:ss',
-            //   unit: 'second',
-            //   tooltipFormat: 'MMM DD, H:mm:ss a',
-            //   displayFormats: {
-            //     second: 'H:mm:ss',
-            //   },
-            // },
+            time: {
+              parser: 'hh:mm:ss',
+              unit: 'second',
+              tooltipFormat: 'MMM DD, H:mm:ss a',
+              displayFormats: {
+                second: 'H:mm:ss',
+              },
+            },
             grid: {
               display: false,
               //@ts-ignore
               drawBorder: false,
             },
             ticks: {
-              // autoSkipPadding: 48,
-              // maxRotation: 0,
+              autoSkipPadding: 48,
+              maxRotation: 0,
               callback: (value) => "",
 
             },
