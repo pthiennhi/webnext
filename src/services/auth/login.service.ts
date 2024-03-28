@@ -5,7 +5,7 @@ export const LoginService = async ({
   password,
 }: LOGIN_REQUEST): Promise<LOGIN_RESPONSE> => {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_ENDPOINT}/api/Account/login`,
+    `https://iot.wyvernp.id.vn/api/v1/auth`,
     {
       method: "POST",
       headers: { "Content-Type": "application/json" },

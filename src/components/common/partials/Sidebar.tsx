@@ -1,5 +1,9 @@
 "use client";
-import { LogoutIcon, SettingIcon, DeviceIcon, HomeIcon } from "@/components/common/icons/curved";
+import {
+  DeviceIcon,
+  HomeIcon,
+  LogoutIcon,
+} from "@/components/common/icons/curved";
 import { Div, Text } from "@/components/common/ui";
 import useDevices from "@/hooks/device/useDevices";
 import { useAuthStore } from "@/store/authStore";
@@ -17,30 +21,8 @@ import { usePathname } from "next/navigation";
 export const Sidebar = () => {
   const { fullName, logout, accountId } = useAuthStore();
   const pathName = usePathname();
-  const {data} = useDevices({ownerId: accountId??1});
-  console.log({
-    data
-  });
-  
-  const MENU_SIDEBAR = [
-    {
-      label: "All devices",
-      href: "/smart-home",
-      icon: <DeviceIcon />,
-      subMenu: [
-        {
-          label: "Demo Device",
-          href: "/smart-home/1001",
-          icon: <HomeIcon />,
-        },
-        {
-          label: "MicroBit Chickies",
-          href: "/smart-home/-1946710095",
-          icon: <HomeIcon />,
-        },
-      ],
-    },
-  ];
+  const { data } = useDevices({ ownerId: accountId ?? 1 });
+
   return (
     <Div className="h-screen w-80 p-4">
       <Div className="flex h-full flex-col rounded-xl bg-white p-4 shadow-sm">
@@ -51,7 +33,7 @@ export const Sidebar = () => {
             className="mb-4 flex justify-center"
           >
             <Image
-              src="/next.svg"
+              src="/chik.svg"
               alt="Logo"
               width={64}
               height={64}
@@ -60,72 +42,40 @@ export const Sidebar = () => {
           </Link>
           <Divider />
           <Div className="flex flex-col">
-            {/* {MENU_SIDEBAR.map((item) => (
-              <Accordion key={item.href}>
-                <AccordionItem
-                  textValue={item.label}
-                  childItems={item.subMenu}
-                  title={
-                    <Link
-                      href={item.href}
-                      color="foreground"
-                      className="flex flex-row items-center justify-start gap-2"
-                    >
-                      <Text>{item.icon}</Text>
-                      <Text>{item.label}</Text>
-                    </Link>
-                  }
-                >
-                  <Div>
-                    {item.subMenu?.map((subItem) => (
-                      <Button
-                        as={Link}
-                        key={subItem.href}
-                        href={subItem.href}
-                        variant={pathName === subItem.href ? "solid" : "light"}
-                        className="mb-2.5 ms-2 flex flex-row items-center justify-start gap-2"
-                      >
-                        <Text>{subItem.icon}</Text>
-                        <Text>{subItem.label}</Text>
-                      </Button>
-                    ))}
-                  </Div>
-                </AccordionItem>
-              </Accordion>
-            ))} */}
-              <Accordion>
-                <AccordionItem
-                  textValue={""}
-                  // childItems={item.subMenu}
-                  title={
-                    <Link
-                      href={"/smart-home"}
-                      color="foreground"
-                      className="flex flex-row items-center justify-start gap-2"
-                    >
-                      <Text><DeviceIcon /></Text>
-                      <Text>All devices</Text>
-                    </Link>
-                  }
+            <Accordion>
+              <AccordionItem
+                textValue={""}
+                title={
+                  <Link
+                    href={"/smart-home"}
+                    color="foreground"
+                    className="flex flex-row items-center justify-start gap-2"
                   >
-                  <Div>
-               
-                  {data?.map(d => (
-                      <Button
-                        as={Link}
-                        key={d.serialId}
-                        href={"/smart-home/"+d.serialId}
-                        variant={pathName === d.serialId ? "solid" : "light"}
-                        className="mb-2.5 ms-2 flex flex-row items-center justify-start gap-2"
-                      >
-                        <Text><HomeIcon /></Text>
-                        <Text>{d?.deviceName}</Text>
-                      </Button>
-                    ))
-                  }
-                  </Div>
-                </AccordionItem>
-              </Accordion>
+                    <Text>
+                      <DeviceIcon />
+                    </Text>
+                    <Text>All devices</Text>
+                  </Link>
+                }
+              >
+                <Div>
+                  {data?.map((d) => (
+                    <Button
+                      as={Link}
+                      key={d.serialId}
+                      href={"/smart-home/" + d.serialId}
+                      variant={pathName === d.serialId ? "solid" : "light"}
+                      className="mb-2.5 ms-2 flex flex-row items-center justify-start gap-2"
+                    >
+                      <Text>
+                        <HomeIcon />
+                      </Text>
+                      <Text>{d?.deviceName}</Text>
+                    </Button>
+                  ))}
+                </Div>
+              </AccordionItem>
+            </Accordion>
           </Div>
         </Div>
 

@@ -1,4 +1,4 @@
-import { Background, Section, Div, Text } from "@/components/common/ui";
+import { Background, Section, Div, Text, Logo } from "@/components/common/ui";
 import { MENU_HEADER } from "@/constants/menuHeader";
 import Image from "next/image";
 import {
@@ -13,17 +13,7 @@ export const Footer = () => (
   <Background color="bg-primary/5">
     <Section>
       <Div className="text-center">
-        <Link href="/" className="flex justify-center" color="foreground">
-          <Image
-            src="/next.svg"
-            alt="Logo"
-            width={64}
-            height={64}
-            unoptimized
-            priority
-            quality={100}
-          />
-        </Link>
+        <Logo />
         <Div className="mt-5 flex flex-row justify-center gap-4">
           {MENU_HEADER.map((item) => (
             <Link
@@ -53,7 +43,7 @@ export const Footer = () => (
           </Div>
         </Div>
         <Div className="mt-8 text-sm">
-          <Text>&copy; 2024 Your Company. All rights reserved.</Text>
+          <Text>&copy; 2024 Chickies Company. All rights reserved.</Text>
         </Div>
       </Div>
     </Section>

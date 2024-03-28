@@ -1,5 +1,5 @@
 import { LOGIN_RESPONSE } from "@/models/auth";
-import { FakeLoginService } from "@/services/auth";
+import { LoginService } from "@/services/auth";
 import { useMutation } from "@tanstack/react-query";
 import { setCookie } from "cookies-next";
 import { useRouter } from "next/navigation";
@@ -7,8 +7,7 @@ import { useRouter } from "next/navigation";
 export const useLogin = () => {
   const router = useRouter();
   const mutation = useMutation({
-    // mutationFn: LoginService,
-    mutationFn: FakeLoginService,
+    mutationFn: LoginService,
     onSuccess: (res: LOGIN_RESPONSE) => {
       if (res.data) {
         const { accessToken, fullname, role } = res.data;

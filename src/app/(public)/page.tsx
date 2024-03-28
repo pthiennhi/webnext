@@ -8,36 +8,28 @@ export default function Home() {
       <Hero />
       <Div className="container mx-auto">
         <Section
-          title="Your title here"
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus malesuada nisi tellus, non imperdiet nisi tempor at."
+          title="Join the IoT Revolution"
+          description="Get started with Chickies Company today and step into the future of home automation."
         >
           <VerticalFeatureRow
-            title="Your title here"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse bibendum, nunc non posuere consectetur, justo erat semper enim, non hendrerit dui odio id enim."
-            image="/images/feature.svg"
-            imageAlt="First feature alt text"
+            title="Seamless Hardware Integration"
+            description="Our IoT solutions begin with state-of-the-art hardware installation. Receive detailed guidance and support from our experts right at your doorstep to set up your IoT devices effortlessly."
+            image="/images/feature_1.svg"
+            imageAlt="Seamless Hardware Integration alt text"
           />
           <VerticalFeatureRow
-            title="Your title here"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse bibendum, nunc non posuere consectetur, justo erat semper enim, non hendrerit dui odio id enim."
-            image="/images/feature.svg"
-            imageAlt="First feature alt text"
+            title="Smart Mobile Application"
+            description="Take control of your home with our user-friendly mobile application. It's designed for convenience, allowing you to monitor and manage your home's IoT devices anytime, anywhere."
+            image="/images/feature_2.svg"
+            imageAlt="Smart Mobile Application alt text"
             reverse
           />
 
           <VerticalFeatureRow
-            title="Your title here"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse bibendum, nunc non posuere consectetur, justo erat semper enim, non hendrerit dui odio id enim."
-            image="/images/feature.svg"
-            imageAlt="First feature alt text"
-          />
-
-          <VerticalFeatureRow
-            title="Your title here"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse bibendum, nunc non posuere consectetur, justo erat semper enim, non hendrerit dui odio id enim."
-            image="/images/feature.svg"
-            imageAlt="First feature alt text"
-            reverse
+            title="Comprehensive Admin Control"
+            description="Maintain oversight of all your IoT devices with our intuitive admin panel. Our platform ensures that everything is under control, with real-time data and management tools that keep you informed and in charge."
+            image="/images/feature_3.svg"
+            imageAlt="Comprehensive Admin Control alt text"
           />
         </Section>
       </Div>

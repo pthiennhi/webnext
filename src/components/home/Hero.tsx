@@ -8,12 +8,20 @@ export const Hero = () => {
     <Background color="bg-primary/5">
       <Section yPadding="pt-20 pb-32">
         <Div className="text-center">
-          <Text className="leading-hero whitespace-pre-line text-5xl font-bold text-gray-900">
-            {"The modern landing page for\n"}
-            <span className="text-primary-500">React developers</span>
+          <Div className="leading-hero whitespace-pre-line text-5xl font-bold text-gray-900">
+            <Text>Chickies Company</Text>
+            <Text className="mt-4 text-primary-500">
+              Smart IOT solutions for your home
+            </Text>
+          </Div>
+          <Text className="mt-4 text-2xl">
+            Make your home smarter. Control your devices from anywhere. Easy to
+            use.
           </Text>
-          <Div className="mb-16 mt-4 text-2xl">
-            The easiest way to build a React landing page in seconds.
+          <Div className="mb-16 mt-4 text-base">
+            Check the{" "}
+            <Link href="#" className="hover:underline">github repository</Link> or download your {" "}
+            <Link href="#" className="hover:underline">Free Guide</Link> for more information.
           </Div>
 
           <Link href="/smart-home" color="foreground">

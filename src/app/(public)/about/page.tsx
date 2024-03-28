@@ -14,14 +14,14 @@ export default function AboutPage() {
         <Div className="shadow-card flex w-full flex-wrap items-center justify-center gap-10 rounded-xl bg-white px-10 dark:bg-zinc-800 md:flex-row md:justify-start md:gap-20">
           <Div className="aspect-square h-80 w-80">
             <Avatar
-              src="/chickies.jpg"
-              className="aspect-square h-80 w-80 object-cover"
+              src="/chickies.png"
+              className="aspect-square h-80 w-80 bg-primary-100 p-5 object-cover"
             />
           </Div>
           <Div className="flex w-full flex-1 flex-col">
             <Text className="mb-4 text-4xl font-semibold text-gray-700 dark:text-gray-200">
               Hey, We&apos;re{" "}
-              <span className="whitespace-nowrap text-violet-500">
+              <span className="whitespace-nowrap text-primary">
                 Chickies
               </span>
             </Text>
@@ -44,7 +44,7 @@ export default function AboutPage() {
         <Div className="shadow-card flex w-full flex-col items-center gap-10 rounded-xl bg-white px-20 py-10 dark:bg-zinc-800 lg:gap-20">
           <Div className="flex gap-2 text-center text-4xl font-semibold text-gray-700 dark:text-gray-200">
             Our
-            <Text className="whitespace-nowrap text-violet-500">
+            <Text className="whitespace-nowrap text-primary">
               Tech Stack
             </Text>
           </Div>

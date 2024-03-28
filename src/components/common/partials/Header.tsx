@@ -1,5 +1,5 @@
 "use client";
-import { Div, Text } from "@/components/common/ui";
+import { Div, Logo, Text } from "@/components/common/ui";
 import { MENU_HEADER } from "@/constants/menuHeader";
 import { useAuthStore } from "@/store/authStore";
 import {
@@ -42,17 +42,7 @@ export const Header = () => {
           className="sm:hidden"
         />
         <NavbarBrand>
-          <Link href="/" color="foreground">
-            <Image
-              src="/next.svg"
-              alt="Logo"
-              width={64}
-              height={64}
-              unoptimized
-              priority
-              quality={100}
-            />
-          </Link>
+          <Logo/>
         </NavbarBrand>
       </NavbarContent>
 
