@@ -4,7 +4,7 @@ import {
   HomeIcon,
   LogoutIcon,
 } from "@/components/common/icons/curved";
-import { Div, Logo, Text } from "@/components/common/ui";
+import { Div, Text } from "@/components/common/ui";
 import useDevices from "@/hooks/device/useDevices";
 import { useAuthStore } from "@/store/authStore";
 import {
@@ -16,6 +16,7 @@ import {
 } from "@nextui-org/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Logo } from "../ui/Logo";
 
 export const Sidebar = () => {
   const { fullName, logout, accountId } = useAuthStore();

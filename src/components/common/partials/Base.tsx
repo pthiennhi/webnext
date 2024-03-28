@@ -20,12 +20,13 @@ export const Base = ({ children }: { children: React.ReactNode }) => {
         );
 
         if (accessToken && profile) {
-          const { fullName, role } = profile;
+          const { fullName, role, accountId } = profile;
           setAuth({
             accessToken,
             fullName,
             role: role as Role,
             isAuth: true,
+            accountId
           });
         }
       }
